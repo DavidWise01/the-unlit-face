@@ -1,0 +1,9 @@
+ROOT0-DLW-CHAIN-v1
+index : 1419
+slug  : the-unlit-face
+seal  : db744bbbb9e446c656ed6ce3aba84fb4abcce430be86ecdf5d512ffce5fed91a
+prev  : 0335e07e02dcd1a55697594ab1f2e56e88a2c89e0150404bb9363da9b7b152c3
+link  : a4675dfecb43dc9f2a508a6cb058b4a81292823552b39f970e9454d381a8dd14
+head  : a4675dfecb43dc9f2a508a6cb058b4a81292823552b39f970e9454d381a8dd14
+
+— the tether: link = sha256(index|slug|seal|prev). the chain head commits to the whole corpus.
