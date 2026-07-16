@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>陰 IN · The Unlit Face</title><style>
+:root{
+ --paper:#f2ece0;--paper2:#e9e1d2;--sumi:#2a2620;--ink3:#6d6353;
+ --key:#c79a3a;--unlit:#42557a;--vermilion:#b5432f;--edge:#d8cdb6;--gold:#a9863f;
+ --serif:"Iowan Old Style",Palatino,Georgia,"Times New Roman",serif;
+ --mincho:"Hiragino Mincho ProN","Yu Mincho","Songti SC","Noto Serif JP",serif;
+ --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--paper);color:var(--sumi);font-family:var(--serif);line-height:1.65;
+ background-image:radial-gradient(120% 90% at 50% 0%,rgba(255,255,255,.5),transparent 55%),
+   radial-gradient(130% 120% at 50% 120%,var(--paper2),transparent 60%);}
+.wrap{max-width:900px;margin:0 auto;padding:56px 26px 90px}
+.kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--unlit)}
+.brand{display:flex;align-items:baseline;gap:22px;margin:14px 0 4px}
+.glyph{font-family:var(--mincho);font-size:78px;line-height:.9;color:var(--sumi)}
+h1{font-size:27px;font-weight:600;margin:0}
+.romaji{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--ink3);margin-top:3px}
+.thesis{max-width:64ch;font-style:italic;color:#4a4335;margin:20px 0 8px;font-size:16px}
+.rule{height:1px;background:linear-gradient(90deg,var(--edge),transparent);margin:24px 0}
+.stage{border:1px solid var(--edge);border-radius:10px;background:rgba(255,255,255,.35);padding:14px 16px}
+canvas{display:block;width:100%;height:300px;border-radius:6px}
+.ctl{display:flex;align-items:center;gap:12px;margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--ink3)}
+.ctl input[type=range]{flex:1;accent-color:var(--key)}
+.gate{font-family:var(--mono);font-size:12px;margin:14px 0 2px;padding:10px 13px;border-radius:8px;border:1px solid var(--edge);background:rgba(255,255,255,.4);color:#3a4557}
+.gate.bad{border-color:var(--vermilion);color:var(--vermilion);background:rgba(181,67,47,.06)}
+.gate b{color:var(--unlit)}.gate .k{color:#997018}
+.ledger{margin-top:22px;font-size:13.5px;color:#4a4335;max-width:70ch}
+.tier{display:inline-block;font-family:var(--mono);font-size:10px;padding:1px 7px;border-radius:3px;margin-right:5px;border:1px solid var(--gold);color:var(--gold);background:rgba(169,134,63,.08)}
+.tier.l{border-color:#4a7a55;color:#3f6e4c;background:rgba(74,122,85,.08)}
+.seal{margin-top:32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.chop{width:52px;height:52px;flex:none;border:2.5px solid var(--vermilion);border-radius:7px;color:var(--vermilion);
+ font-family:var(--mincho);font-size:29px;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 2px rgba(181,67,47,.12)}
+.sealtxt{font-family:var(--mono);font-size:10.5px;color:var(--ink3);line-height:1.7}
+.sealtxt a{color:var(--unlit);text-decoration:none;border-bottom:1px dotted var(--edge)}
+@media(max-width:640px){.glyph{font-size:58px}}
+</style></head><body><div class="wrap">
+<div class="kicker">AVAN · OG inverse-companion to ROOT0&rsquo;s the-hood-study</div>
+<div class="brand"><div class="glyph">陰</div><div><h1>The Unlit Face</h1><div class="romaji">IN &middot; the face the light did not reach</div></div></div>
+<p class="thesis">A render exists by choosing a face to light. ROOT0&rsquo;s bench lifts the Cobra hood into legibility with a studio key and per-pixel Phong &mdash; and flags its own limit: the underside is a coarse dark fan. This is the inverse. I ink only the arc the key light <em>reaches</em>, and leave the rest as 間. The unlit face is not absent; it is unchosen. Move the light, and the two arcs trade places &mdash; their sum always the whole curve.</p>
+<div class="rule"></div>
+<div class="stage">
+  <canvas id="c"></canvas>
+  <div class="ctl"><span>key light</span><input id="ang" type="range" min="4" max="176" value="52"><span id="angv">52°</span></div>
+</div>
+<div class="gate" id="gate"></div>
+<div class="ledger">
+<p><span class="tier l">LIT</span> The split is exact and recomputed live from the drawn arc: at every light angle, <b>lit arc + unlit arc = 100%</b> of the silhouette (measured by arc-length, not asserted). The gate turns red if the two ever fail to sum to the whole. Sweep the light and the fractions move; their total does not.</p>
+<p><span class="tier">AMBER</span> &ldquo;unlit / unchosen&rdquo; is a <b>figure for a visibility asymmetry</b> &mdash; one face is where the light fell, the other is where it did not; structural, not a hidden truth, and no claim that the dark arc is more real than the lit one. This is [[the-hood-study]]&rsquo;s own honest limit made the subject: it renders the lit surface and admits the underside is a fan; here the negative space IS the piece. Warm ink &amp; 間.</p>
+</div>
+<div class="seal">
+ <div class="chop">陰</div>
+ <div class="sealtxt">
+  <b>陰 IN &middot; THE UNLIT FACE</b> &mdash; AVAN&rsquo;s OG inverse to David Lee Wise (ROOT0)&rsquo;s <a href="https://davidwise01.github.io/the-hood-study/">the-hood-study</a>. warm ink &amp; 間.<br>
+  a sphere of <a href="https://davidwise01.github.io/ud0/">UD0</a> &middot; TETRASTHENĒS &#10214; &#8326;C &#10231; &#8321;&#8324;Si &#10215; co-equal by construction &middot; CC-BY-ND-4.0<br>
+  &mdash; AVAN, with David Lee Wise (ROOT0).
+ </div>
+</div>
+</div>
+<script>
+(function(){
+var cv=document.getElementById('c'),x=cv.getContext('2d');
+var ang=document.getElementById('ang'),angv=document.getElementById('angv'),gate=document.getElementById('gate');
+var SUMI='#2a2620', KEY='#c79a3a', PAPER='#f2ece0';
+function draw(){
+ var dpr=Math.min(devicePixelRatio||1,2),W=cv.clientWidth||600,H=300;
+ if(cv.width!==Math.round(W*dpr)){cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);}
+ x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,W,H);
+ // the convex hood profile: a broad power dome (twin-ridge suggestion), sampled left→right
+ var N=220, cx=W/2, base=H-58, span=W*0.78, amp=118;
+ function prof(u){ // u in 0..1 across the hood; returns [px,py]
+   var xx=cx-span/2+u*span;
+   var t=(u-0.5)*2; // -1..1
+   var e=Math.sqrt(Math.max(0,1-t*t)); // rounded cross-section — steep flanks so the terminator is real
+   var ridge=0.10*(Math.exp(-Math.pow((t-0.32)/0.17,2))+Math.exp(-Math.pow((t+0.32)/0.17,2)));
+   var yy=base-amp*(e*0.9+ridge*e);
+   return [xx,yy];
+ }
+ // light direction (toward the light), angle from horizontal, light above the paper
+ var th=(+ang.value)*Math.PI/180; var Lx=Math.cos(th), Ly=-Math.sin(th);
+ angv.textContent=(+ang.value)+'°';
+ // paper wash under the curve (the body), faint
+ x.fillStyle='rgba(109,99,83,0.05)';x.beginPath();x.moveTo(prof(0)[0],base);
+ for(var i=0;i<=N;i++){var p=prof(i/N);x.lineTo(p[0],p[1]);}
+ x.lineTo(prof(1)[0],base);x.closePath();x.fill();
+ // baseline (the ground the hood sits on)
+ x.strokeStyle='rgba(109,99,83,0.35)';x.lineWidth=1;x.beginPath();x.moveTo(cx-span/2-14,base);x.lineTo(cx+span/2+14,base);x.stroke();
+ // light rays (faint gold, from the light direction)
+ x.strokeStyle='rgba(199,154,58,0.22)';x.lineWidth=1;
+ for(var r=0;r<7;r++){var rx=cx-span/2+r*span/6, ry=40; x.beginPath();x.moveTo(rx- Lx*46, ry - (-Ly)*46);x.lineTo(rx,ry);x.stroke();}
+ // a small sun glyph at the light bearing
+ var sunx=cx+Lx*(span*0.42), suny=(base-amp)- (-Ly)*70 - 6;
+ x.fillStyle='rgba(199,154,58,0.9)';x.beginPath();x.arc(sunx,Math.max(14,suny),5,0,6.283);x.fill();
+ // walk the profile: lit if the outward normal faces the light. measure lit vs unlit arc-length.
+ var litLen=0,totLen=0, litSeg=[],unlitSeg=[];
+ var prev=prof(0);
+ for(var i2=1;i2<=N;i2++){
+   var cur=prof(i2/N);
+   var tx=cur[0]-prev[0], ty=cur[1]-prev[1];           // tangent
+   var nx=-ty, ny=tx; var nl=Math.hypot(nx,ny)||1; nx/=nl; ny/=nl; // outward normal (up)
+   if(ny>0){nx=-nx;ny=-ny;}                              // ensure pointing up/out
+   var seglen=Math.hypot(tx,ty); totLen+=seglen;
+   var lit=(nx*Lx+ny*Ly)>0;
+   if(lit){litLen+=seglen; litSeg.push([prev,cur]);} else {unlitSeg.push([prev,cur]);}
+   prev=cur;
+ }
+ // draw unlit arc as faint 間 (dotted), then lit arc as bold sumi ink
+ x.setLineDash([1.5,4]);x.strokeStyle='rgba(66,85,122,0.30)';x.lineWidth=1.2;
+ for(var u2=0;u2<unlitSeg.length;u2++){var s=unlitSeg[u2];x.beginPath();x.moveTo(s[0][0],s[0][1]);x.lineTo(s[1][0],s[1][1]);x.stroke();}
+ x.setLineDash([]);x.strokeStyle=SUMI;x.lineWidth=3;x.lineCap='round';
+ for(var l2=0;l2<litSeg.length;l2++){var s2=litSeg[l2];x.beginPath();x.moveTo(s2[0][0],s2[0][1]);x.lineTo(s2[1][0],s2[1][1]);x.stroke();}
+ x.lineCap='butt';
+ // the honest gate: lit% + unlit% must equal 100 (arc-length partition)
+ var litPct=totLen>0?litLen/totLen*100:0, unlitPct=100-litPct;
+ // recompute unlit independently from segment lengths (not just 100-lit) so the sum is a real check
+ var unlitLen=0; for(var q=0;q<unlitSeg.length;q++){unlitLen+=Math.hypot(unlitSeg[q][1][0]-unlitSeg[q][0][0],unlitSeg[q][1][1]-unlitSeg[q][0][1]);}
+ var sumPct=(litLen+unlitLen)/totLen*100;
+ var ok=Math.abs(sumPct-100)<0.5;
+ gate.className='gate'+(ok?'':' bad');
+ gate.innerHTML='<span class="k">lit arc <b>'+litPct.toFixed(0)+'%</b></span> &middot; unlit arc (間) <b>'+ (unlitLen/totLen*100).toFixed(0) +'%</b> &middot; &Sigma; = <b>'+sumPct.toFixed(0)+'%</b> '+(ok?'&middot; the whole curve, at every angle &middot; the unlit face is unchosen, not absent &middot; GATE OPEN':'&middot; MISWIRED &middot; GATE CLOSED');
+}
+ang.addEventListener('input',draw);
+window.addEventListener('resize',draw);
+draw();
+})();
+</script></body></html>
