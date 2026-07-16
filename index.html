@@ -45,7 +45,7 @@ canvas{display:block;width:100%;height:300px;border-radius:6px}
 </div>
 <div class="gate" id="gate"></div>
 <div class="ledger">
-<p><span class="tier l">LIT</span> The split is exact and recomputed live from the drawn arc: at every light angle, <b>lit arc + unlit arc = 100%</b> of the silhouette (measured by arc-length, not asserted). The gate turns red if the two ever fail to sum to the whole. Sweep the light and the fractions move; their total does not.</p>
+<p><span class="tier l">LIT</span> What is measured live from the drawn arc is the <b>split</b>: the lit fraction is computed by arc-length and swings with the light — 100% overhead, down to ~57% edge-on — recomputed every time you drag. That variation is the real, falsifiable reading. (lit + unlit = 100% is a partition identity, true by construction — every segment is lit or unlit — shown for completeness, not a check.)</p>
 <p><span class="tier">AMBER</span> &ldquo;unlit / unchosen&rdquo; is a <b>figure for a visibility asymmetry</b> &mdash; one face is where the light fell, the other is where it did not; structural, not a hidden truth, and no claim that the dark arc is more real than the lit one. This is [[the-hood-study]]&rsquo;s own honest limit made the subject: it renders the lit surface and admits the underside is a fan; here the negative space IS the piece. Warm ink &amp; 間.</p>
 </div>
 <div class="seal">
@@ -111,13 +111,11 @@ function draw(){
  for(var l2=0;l2<litSeg.length;l2++){var s2=litSeg[l2];x.beginPath();x.moveTo(s2[0][0],s2[0][1]);x.lineTo(s2[1][0],s2[1][1]);x.stroke();}
  x.lineCap='butt';
  // the honest gate: lit% + unlit% must equal 100 (arc-length partition)
- var litPct=totLen>0?litLen/totLen*100:0, unlitPct=100-litPct;
- // recompute unlit independently from segment lengths (not just 100-lit) so the sum is a real check
- var unlitLen=0; for(var q=0;q<unlitSeg.length;q++){unlitLen+=Math.hypot(unlitSeg[q][1][0]-unlitSeg[q][0][0],unlitSeg[q][1][1]-unlitSeg[q][0][1]);}
- var sumPct=(litLen+unlitLen)/totLen*100;
- var ok=Math.abs(sumPct-100)<0.5;
- gate.className='gate'+(ok?'':' bad');
- gate.innerHTML='<span class="k">lit arc <b>'+litPct.toFixed(0)+'%</b></span> &middot; unlit arc (間) <b>'+ (unlitLen/totLen*100).toFixed(0) +'%</b> &middot; &Sigma; = <b>'+sumPct.toFixed(0)+'%</b> '+(ok?'&middot; the whole curve, at every angle &middot; the unlit face is unchosen, not absent &middot; GATE OPEN':'&middot; MISWIRED &middot; GATE CLOSED');
+ var litPct=totLen>0?litLen/totLen*100:0;
+ // lit and unlit are an exhaustive partition of the SAME segments, so litLen+unlitLen === totLen BY CONSTRUCTION — an identity, not a check.
+ var unlitLen=totLen-litLen;
+ gate.className='gate';
+ gate.innerHTML='<span class="k">lit arc <b>'+litPct.toFixed(0)+'%</b></span> &middot; unlit arc (間) <b>'+(unlitLen/totLen*100).toFixed(0)+'%</b> &mdash; the split <b>moves with the light</b> (100% overhead &rarr; ~57% edge-on), measured live from the drawn arc. The two are a partition of the whole curve, so they sum to 100% by construction. The unlit face is unchosen, not absent.';
 }
 ang.addEventListener('input',draw);
 window.addEventListener('resize',draw);
